@@ -2,7 +2,7 @@ var express = require('express');
 var hbs = require('hbs');
 const fs = require('fs');
 
-const port =process.env.PORT||3000;
+const port = process.env.PORT || 3000;
 var app = express();
 
 hbs.registerPartials(__dirname + "/views/partials");
@@ -26,10 +26,17 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use((req, res, next) => {
-	res.render('maintainance.hbs', {
-		title: 'Maintainance',
-		welcome: 'The site is under maintainance'
+// app.use((req, res, next) => {
+// 	res.render('maintainance.hbs', {
+// 		title: 'Maintainance',
+// 		welcome: 'The site is under maintainance'
+// 	});
+// });
+
+app.get('/projects',(req, res) => {
+	res.render('projects.hbs', {
+		title: 'Project',
+		welcome: 'Portfolio page here'
 	});
 });
 
@@ -38,7 +45,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
 	res.render('home.hbs', {
 		welcome: "Welcome to Mr. Suri's Website",
-		title: "Home",
+		title: "Home"
 	});
 });
 
