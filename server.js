@@ -40,6 +40,14 @@ app.get('/projects',(req, res) => {
 	});
 });
 
+
+app.get('/mahima',(req, res) => {
+	res.render('mahima.hbs', {
+		title: 'mahima',
+		welcome: 'Rish loves mahi!'
+	});
+});
+
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res) => {
